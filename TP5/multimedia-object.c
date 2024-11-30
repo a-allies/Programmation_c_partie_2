@@ -31,6 +31,7 @@ void fillMO (MultimediaObject * o, char * name, char * path, int day, int month,
 
 void changeNameMO(MultimediaObject *mo, char *nouveauNom) {
     strncpy(mo->name, nouveauNom, MY_NAME_MAX-1 );
+    mo->name[MY_NAME_MAX-1] = '\0';
 }
 
 void displayConsoleOM( const MultimediaObject *mo) {

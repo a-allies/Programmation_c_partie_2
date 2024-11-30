@@ -1,0 +1,1 @@
+/usr/bin/cc  -Wall -Wextra  -g CMakeFiles/main.dir/main.c.o CMakeFiles/main.dir/image.c.o "CMakeFiles/main.dir/image-proba.c.o" CMakeFiles/main.dir/test.c.o -o main  -lm

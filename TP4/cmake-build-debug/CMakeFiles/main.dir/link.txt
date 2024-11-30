@@ -1,0 +1,1 @@
+/usr/bin/cc  -Wall -Wextra  -g CMakeFiles/main.dir/main.c.o CMakeFiles/main.dir/imageRGB.c.o CMakeFiles/main.dir/test.c.o CMakeFiles/main.dir/BMPFile.c.o -o main

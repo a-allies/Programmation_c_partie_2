@@ -1,0 +1,1 @@
+/usr/bin/cc  -Wall -Wextra  -g CMakeFiles/main.dir/main.c.o CMakeFiles/main.dir/imageRGB.c.o CMakeFiles/main.dir/test.c.o "/home/ange/Documents/Programmation-C/Partie_2/TP/TP3/BMPFile_teacher.o" -o main

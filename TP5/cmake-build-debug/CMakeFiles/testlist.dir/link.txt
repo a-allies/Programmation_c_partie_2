@@ -1,0 +1,1 @@
+/usr/bin/cc -g CMakeFiles/testlist.dir/main_testlist.c.o "CMakeFiles/testlist.dir/multimedia-object.c.o" CMakeFiles/testlist.dir/test.c.o CMakeFiles/testlist.dir/listMO.c.o -o testlist

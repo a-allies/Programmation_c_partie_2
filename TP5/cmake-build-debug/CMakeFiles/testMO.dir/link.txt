@@ -1,0 +1,1 @@
+/usr/bin/cc -g CMakeFiles/testMO.dir/main_testMO.c.o "CMakeFiles/testMO.dir/multimedia-object.c.o" CMakeFiles/testMO.dir/test.c.o -o testMO

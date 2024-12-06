@@ -1,0 +1,1 @@
+/usr/bin/cc -g CMakeFiles/leakDetector.dir/main.c.o CMakeFiles/leakDetector.dir/myAlloc.c.o CMakeFiles/leakDetector.dir/myFunctions.c.o CMakeFiles/leakDetector.dir/memoryList.c.o CMakeFiles/leakDetector.dir/test.c.o -o leakDetector

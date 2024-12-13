@@ -17,10 +17,7 @@ void fillMO (MultimediaObject * o, char * name, char * path, int day, int month,
     if (o==NULL) return;
 
     strncpy( o->name, name, MY_NAME_MAX-1);
-    o->name[MY_NAME_MAX-1] = '\0';
-
     strncpy( o->path, path, MY_PATH_MAX-1);
-    o->path[MY_PATH_MAX-1] = '\0';
 
     o->type = type;
     o->date.day = day;
@@ -30,11 +27,12 @@ void fillMO (MultimediaObject * o, char * name, char * path, int day, int month,
 }
 
 void changeNameMO(MultimediaObject *mo, char *nouveauNom) {
+    if(mo==NULL || nouveauNom==NULL) return;
     strncpy(mo->name, nouveauNom, MY_NAME_MAX-1 );
-    mo->name[MY_NAME_MAX-1] = '\0';
 }
 
 void displayConsoleOM( const MultimediaObject *mo) {
+    if(mo==NULL) return;	
     fprintf(stdout, "Multimedia object : \n");
     fprintf(stdout, "name : %s\n", mo->name);
     fprintf(stdout, "path : %s\n", mo->path);

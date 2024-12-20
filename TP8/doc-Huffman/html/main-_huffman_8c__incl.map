@@ -1,0 +1,11 @@
+<map id="main&#45;Huffman.c" name="main&#45;Huffman.c">
+<area shape="rect" id="node1" title="main program to read data from file and build the corresponding Huffman coding" alt="" coords="135,5,249,32"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,80,67,107"/>
+<area shape="rect" id="node3" title=" " alt="" coords="91,80,155,107"/>
+<area shape="rect" id="node4" href="$binary__tree_8h.html" title="File defining the binary Huffman tree structure as studied in Huffman coding practical work." alt="" coords="206,229,303,256"/>
+<area shape="rect" id="node5" href="$list_8h.html" title="File defining the list structure as studied in Huffman coding practical work." alt="" coords="229,155,280,181"/>
+<area shape="rect" id="node8" href="$huffman__method_8h.html" title="File defining the functions to build a Huffman tree." alt="" coords="280,80,411,107"/>
+<area shape="rect" id="node6" href="$image_8h.html" title="File declaring the image characteristics." alt="" coords="350,229,418,256"/>
+<area shape="rect" id="node7" title=" " alt="" coords="345,304,423,331"/>
+<area shape="rect" id="node9" href="$image-proba_8h.html" title="File defining the function to read an square image whose pixels are between 0 and 7 and estimate the ..." alt="" coords="355,155,459,181"/>
+</map>

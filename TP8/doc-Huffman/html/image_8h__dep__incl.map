@@ -1,0 +1,11 @@
+<map id="image.h" name="image.h">
+<area shape="rect" id="node1" title="File declaring the image characteristics." alt="" coords="231,5,299,32"/>
+<area shape="rect" id="node2" href="$list_8h.html" title="File defining the list structure as studied in Huffman coding practical work." alt="" coords="95,80,145,107"/>
+<area shape="rect" id="node7" href="$image-proba_8h.html" title="File defining the function to read an square image whose pixels are between 0 and 7 and estimate the ..." alt="" coords="169,80,273,107"/>
+<area shape="rect" id="node8" href="$image-proba_8c.html" title="File implementing the function to read an image and estimate the probability." alt="" coords="285,155,389,181"/>
+<area shape="rect" id="node9" href="$image_8c.html" title="File defining the image functionnalities." alt="" coords="349,80,417,107"/>
+<area shape="rect" id="node3" href="$huffman__method_8h.html" title="File defining the functions to build a Huffman tree." alt="" coords="131,155,261,181"/>
+<area shape="rect" id="node5" href="$main-_huffman_8c.html" title="main program to read data from file and build the corresponding Huffman coding" alt="" coords="36,229,151,256"/>
+<area shape="rect" id="node6" href="$list_8c.html" title="File implementing the list structure as studied in Huffman coding practical work." alt="" coords="5,155,56,181"/>
+<area shape="rect" id="node4" href="$huffman__method_8c.html" title="File implementing the functions to build a Huffman tree." alt="" coords="175,229,305,256"/>
+</map>

@@ -1,0 +1,24 @@
+CC=gcc -c
+CFLAGS= -Wall -Wextra -MMD
+LD=gcc
+LDFLAGS=
+LDLIBS=
+
+producer.o:producer.c 
+	$(CC) $(CFLAGS) producer.c
+
+consumer.o:consumer.c 
+	$(CC) $(CFLAGS) consumer.c
+main.o: main.c	
+	$(CC) $(CFLAGS) main.c
+
+init_conso_prod.o: init_conso_prod.c 
+	$(CC) $(CFLAGS) init_conso_prod.c
+
+
+prod_cons: producer.o consumer.o main.o init_conso_prod.o
+	gcc producer.o consumer.o main.o init_conso_prod.o -o prod_cons
+
+include $(wildcard *.d)
+
+

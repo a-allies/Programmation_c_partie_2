@@ -1,0 +1,20 @@
+
+producer.o:producer.c 
+	gcc -c -MMD producer.c
+
+consumer.o:consumer.c 
+	gcc -c -MMD consumer.c
+
+main.o: main.c 
+	gcc -c -MMD main.c
+
+init_conso_prod.o: init_conso_prod.c 
+	gcc -c -MMD init_conso_prod.c
+
+
+prod_cons: producer.o consumer.o main.o init_conso_prod.o
+	gcc producer.o consumer.o main.o init_conso_prod.o -o prod_cons
+
+include $(wildcard *.d)
+
+

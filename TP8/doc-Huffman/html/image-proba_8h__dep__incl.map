@@ -1,0 +1,7 @@
+<map id="image&#45;proba.h" name="image&#45;proba.h">
+<area shape="rect" id="node1" title="File defining the function to read an square image whose pixels are between 0 and 7 and estimate the ..." alt="" coords="163,5,267,32"/>
+<area shape="rect" id="node2" href="$huffman__method_8h.html" title="File defining the functions to build a Huffman tree." alt="" coords="79,80,209,107"/>
+<area shape="rect" id="node5" href="$image-proba_8c.html" title="File implementing the function to read an image and estimate the probability." alt="" coords="233,80,337,107"/>
+<area shape="rect" id="node3" href="$huffman__method_8c.html" title="File implementing the functions to build a Huffman tree." alt="" coords="5,155,136,181"/>
+<area shape="rect" id="node4" href="$main-_huffman_8c.html" title="main program to read data from file and build the corresponding Huffman coding" alt="" coords="160,155,275,181"/>
+</map>

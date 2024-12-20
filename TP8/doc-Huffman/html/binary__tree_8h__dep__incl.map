@@ -1,0 +1,10 @@
+<map id="binary_tree.h" name="binary_tree.h">
+<area shape="rect" id="node1" title="File defining the binary Huffman tree structure as studied in Huffman coding practical work." alt="" coords="146,5,243,32"/>
+<area shape="rect" id="node2" href="$binary__tree_8c.html" title="File implementing the binary Huffman tree structure as studied in Huffman coding practical work." alt="" coords="9,80,106,107"/>
+<area shape="rect" id="node3" href="$huffman__method_8h.html" title="File defining the functions to build a Huffman tree." alt="" coords="27,155,157,181"/>
+<area shape="rect" id="node5" href="$main-_huffman_8c.html" title="main program to read data from file and build the corresponding Huffman coding" alt="" coords="160,229,275,256"/>
+<area shape="rect" id="node6" href="$list_8h.html" title="File defining the list structure as studied in Huffman coding practical work." alt="" coords="232,80,283,107"/>
+<area shape="rect" id="node8" href="$main_b_tree_8c.html" title="main program to build a Huffman tree" alt="" coords="307,80,403,107"/>
+<area shape="rect" id="node4" href="$huffman__method_8c.html" title="File implementing the functions to build a Huffman tree." alt="" coords="5,229,136,256"/>
+<area shape="rect" id="node7" href="$list_8c.html" title="File implementing the list structure as studied in Huffman coding practical work." alt="" coords="283,155,333,181"/>
+</map>

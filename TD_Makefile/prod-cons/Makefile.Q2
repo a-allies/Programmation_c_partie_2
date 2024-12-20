@@ -1,0 +1,22 @@
+
+
+producer.o:producer.c producer.h globals_prod_conso.h
+	gcc -c producer.c
+
+consumer.o:consumer.c consumer.h globals_prod_conso.h
+	gcc -c consumer.c
+
+main.o: main.c consumer.h producer.h init_conso_prod.h globals_prod_conso.h
+	gcc -c main.c
+
+init_conso_prod.o: init_conso_prod.c init_conso_prod.h globals_prod_conso.h
+	gcc -c init_conso_prod.c
+
+
+prod_cons: producer.o consumer.o main.o init_conso_prod.o
+	gcc producer.o consumer.o main.o init_conso_prod.o -o prod_cons
+
+
+
+
+

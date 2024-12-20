@@ -1,0 +1,5 @@
+<map id="list" name="list">
+<area shape="rect" id="node1" title="list of tree nodes" alt="" coords="24,216,63,243"/>
+<area shape="rect" id="node2" href="$structnode_list.html" title="Data element of a list, containing a tree." alt="" coords="8,97,79,124"/>
+<area shape="rect" id="node3" href="$structnode_tree.html" title="Data element of a binary tree associated to a probability. If the left and right children are not nul..." alt="" coords="5,7,81,33"/>
+</map>

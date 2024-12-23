@@ -7,6 +7,7 @@
 
 #include "imageRGB.h"
 
+
 /*!
  * Allocate an image as a rectangle whose size is specified.
  * \param[in] w image width
@@ -15,22 +16,22 @@
  */
 ImageRGB *allocateImage( unsigned int h, unsigned int w)
 {
-    ImageRGB *ptr_img = (ImageRGB *) calloc(1, sizeof(ImageRGB));
-    if (ptr_img==NULL) {
-        fprintf(stderr, "Erreur d'allocation de l'imageRGB -> fin du programme\n");
-        exit(-1);
+    ImageRGB *img = (ImageRGB *) calloc(1, sizeof(ImageRGB));
+    if (img==NULL) {
+        fprintf(stderr, "Erreur d'allocation mémoire pour l'imageRGB dans allocateImage()\n");
+        return img;
     }
 
-    ptr_img->raw_data = (PixelRGB *) calloc(h*w, sizeof(PixelRGB));
-    if (ptr_img->raw_data==NULL) {
-        fprintf(stderr, "Erreur d'allocation de la matrice de pixel de l'image -> fin du programme\n");
-        exit(-1);
+    img->raw_data = (PixelRGB *) calloc(h*w, sizeof(PixelRGB));
+    if (img->raw_data==NULL) {
+        fprintf(stderr, "Erreur d'allocation mémoire pour le raw data dans allocateImage()\n");
+        return img;
     }
 
-    ptr_img->height = h;
-    ptr_img->width = w;
+    img->width = w;
+    img->height = h;
 
-    return ptr_img;
+    return img;
 }
 
 /*!
@@ -40,9 +41,8 @@ ImageRGB *allocateImage( unsigned int h, unsigned int w)
  * \return unsigned int the image width
  */
 
-unsigned int getWidth(ImageRGB *image)
-{
-    if (image==NULL) return -1;
+unsigned int getWidth(ImageRGB *image) {
+    if (image==NULL) return 0;
     return image->width;
 }
 
@@ -52,9 +52,8 @@ unsigned int getWidth(ImageRGB *image)
  * \param[in] image the image
  * \return unsigned int the image height
  */
-unsigned int getHeight(ImageRGB *image)
-{
-    if (image==NULL) return -1;
+unsigned int getHeight(ImageRGB *image) {
+    if (image==NULL) return 0;
     return image->height;
 }
 
@@ -62,12 +61,19 @@ unsigned int getHeight(ImageRGB *image)
  *  Free the memore allocated for a structure
  * \param[in] image ImageRGB to be deleted
  */
-void  freeImage(ImageRGB * image)
-{
+void  freeImage(ImageRGB * image) {
+
+    if (image==NULL) return;
+
+    if (image->raw_data==NULL) {
+        free( (void *) image);
+        return;
+    }
+
     image->width = 0;
     image->height = 0;
-    free( (void *) image->raw_data);
-    free(image);
+    free((void *) image->raw_data);
+    free( (void *) image);
 }
 
 
@@ -81,10 +87,10 @@ void  freeImage(ImageRGB * image)
  * \param[in] r The row number of the Pixel to be set
  * \param[in] p Pixel value to set at this location
  */
-void setPixel(ImageRGB *image, unsigned int r, unsigned int c , PixelRGB p)
-{
-    if (image==NULL) return;
-    image->raw_data[image->width*r + c] = p;
+void setPixel(ImageRGB *image, unsigned int r, unsigned int c , PixelRGB p) {
+    if (image==NULL || r>=image->height || c>=image->width) return ;
+
+    image->raw_data[image->width*r+c] = p;
 }
 
 /*!
@@ -97,10 +103,10 @@ void setPixel(ImageRGB *image, unsigned int r, unsigned int c , PixelRGB p)
  * \return PixelRGB Pixel value at this location
  */
 
-PixelRGB getPixel(ImageRGB *image, unsigned int r, unsigned int c)
-{
-    PixelRGB p = image->raw_data[image->width*r + c];
-    return p;
+PixelRGB getPixel(ImageRGB *image, unsigned int r, unsigned int c) {
+    if (image==NULL || r>=image->height || c>=image->width) return (PixelRGB) {'\0', '\0', '\0'};
+
+    return image->raw_data[image->width*r+c];
 }
 
 /*!
@@ -110,31 +116,29 @@ PixelRGB getPixel(ImageRGB *image, unsigned int r, unsigned int c)
  * \return a pointer on the new image
  */
 
-ImageRGB* createCross(int length)
-{
-    int i = 0;
-    int j = 0;
+ImageRGB* createCross(int length) {
+    unsigned int i = 0;
+    unsigned int j = 0;
+    ImageRGB *img = NULL;
     PixelRGB pxl_bleu = {255, 0, 0};
-    PixelRGB pxl_rouge = {0, 0, 255} ;
+    PixelRGB pxl_rouge = {0, 0, 255};
 
-    ImageRGB *ptr_img = allocateImage(length, length);
-    if (ptr_img==NULL) {
-        fprintf(stderr, "Erreur d'allocation de l'imageRGB -> fin du programme\n");
-        exit(-1);
-    }
-    for (i; i<ptr_img->height; i++) {
-        for (j; j<ptr_img->width; j++) {
-            if ( i==j || j==length-1-i ) {
-                setPixel(ptr_img, i, j, pxl_bleu);
+    if (length<=0) return NULL;
+
+    img = allocateImage(length, length);
+
+    for (i=0; i<(unsigned int)length; i++) {
+        for (j=0; j<(unsigned int)length; j++) {
+            if (i==j || j== ( (unsigned int) length)-1-i ) {
+                setPixel(img, i, j, pxl_bleu);
             }
             else {
-                setPixel(ptr_img, i, j, pxl_rouge );
+                setPixel(img, i, j, pxl_rouge);
             }
         }
-        j = 0;
     }
-    return ptr_img;
 
+    return img;
 }
 
 /*!
@@ -144,24 +148,21 @@ ImageRGB* createCross(int length)
  * \param[in] pix_initial initial value in the image to be replaced
  * \param[in] pix_final the new value for those pixels
  */
-void modifyImage(ImageRGB * image, PixelRGB pix_initial, PixelRGB pix_final)
-{
-    int i = 0;
-    int j = 0;
+void modifyImage(ImageRGB * image, PixelRGB pix_initial, PixelRGB pix_final) {
+    unsigned int i = 0;
+    unsigned int j = 0;
 
     if (image==NULL) return;
-    for (i; i<image->height; i++) {
-        for (j; j<image->width; j++) {
-            if (
-                image->raw_data[image->width*i + j].red == pix_initial.red
+
+    for (i=0; i<image->height; i++) {
+        for (j=0; j<image->width; j++) {
+            PixelRGB pixel_actuel = getPixel(image, i, j);
+            if ( pixel_actuel.blue == pix_initial.blue
                 &&
-                image->raw_data[image->width*i + j].green == pix_initial.green
+                pixel_actuel.green == pix_initial.green
                 &&
-                image->raw_data[image->width*i + j].blue == pix_initial.blue
-                ) {setPixel(image, i, j, pix_final);}
+                pixel_actuel.red == pix_initial.red
+                ) setPixel(image, i, j, pix_final);
         }
-        j = 0;
     }
 }
-
-

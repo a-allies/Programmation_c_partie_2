@@ -9,9 +9,9 @@ ifeq ($(DEBUG),yes)
 CFLAGS+=-g
 endif
 
-all: programme
+all: program
 
-programme: main.o imageRGB.o test.o BMPFile_teacher.o
+program: main.o imageRGB.o test.o BMPFile_teacher.o
 	$(CC) $(LDFLAGS) $^ $(LIB) -o $@
 
 %.o: %.c
@@ -20,6 +20,6 @@ programme: main.o imageRGB.o test.o BMPFile_teacher.o
 clean:
 	rm *.d
 	rm *.o
-	rm programme
+	rm program
 
 include $(wildcard .d)

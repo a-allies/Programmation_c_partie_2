@@ -48,28 +48,25 @@ int evaluateExpression(char *str){
   return pop(&s);
 }
 
-
 int evaluateExpression_pf(char *str) {
-  static const Map_element tableau_map_element[] = {
-    {'+', add}, {'-', substract}, {'*', multiply}, {'/', divide}
-  };
-
+  static Map_element map[] = { {'+', add}, {'-', substract}, {'*', multiply}, {'/', divide}};
   Stack s;
-  int i;
+  int i = 0;
 
   init_stack(&s);
-  i=0;
-  while(str[i] != '\0') {
+  while(str[i] != '\0')
+  {
     if(isANumber(str[i]))
         push(&s, str[i] - '0');
     else {
-        int j = 0;
-        for(j; j<4; j++) {
-          if( tableau_map_element[j].c==str[i]) {
-            tableau_map_element[j].act(&s);
-            break;
-          }
-        }
+    	int j = 0;
+	int limite = sizeof(map)/sizeof(map[0]);
+	for(j; j<limite; j++) {
+		if( str[i] == map[j].c  ) {
+			map[j].act(&s);
+			break;
+		}	
+	}	
     }
     i++;
   }
@@ -94,9 +91,9 @@ int test_evalString(void){
     
     /* With binary + unary operators */
     /* Uncomment when function evaluateExpression_pf() + unary operators are implemented*/
-    /*
-    display_test_int("Test evaluateExpression_pf() for binary+unary operators",64,evaluateExpression_pf(expr2));
-    */
+    
+    //display_test_int("Test evaluateExpression_pf() for binary+unary operators",64,evaluateExpression_pf(expr2));
+    
 
   return(EXIT_SUCCESS);
 }

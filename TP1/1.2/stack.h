@@ -41,5 +41,8 @@ void display_stack(Stack * s);
 
 
 int test_stack(void);
-int fill_stack ( Stack *s , int n_element , ...) ;
+
+
+int fill_stack(Stack *s, int n_element, ...);
+
 #endif

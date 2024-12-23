@@ -8,6 +8,7 @@
 #include "stack.h"
 #include "test.h"
 
+
 /*!
  * Initialize the stack
  * \param[in] s the stack to be initialized
@@ -103,6 +104,26 @@ void display_stack(Stack * s)
 }
 
 
+int fill_stack(Stack *s, int n_element, ...) {
+	int i = 0;
+	va_list liste_parametres;
+
+	if(s==NULL) return 0;
+	if(n_element>=STACK_MAX_SIZE) {
+		fprintf(stdout, "Nombre d'éléments à insérer > capacité de la pile -> sortie de la fonction");
+		return 0;
+	}
+
+	va_start(liste_parametres, n_element);
+	
+	for(i; i<n_element; i++) {
+		s->data[i] =  va_arg(liste_parametres, int);
+		s->top = i;
+	}
+
+	va_end(liste_parametres);
+	return 1;	
+}
 
 /*!
  * \fn int test_stack(void)
@@ -141,7 +162,6 @@ int test_stack(void){
     display_stack(&s);
 
     /* Uncomment when fill_stack is implemented*/
-    ///*
     init_stack(&s);
     fill_stack(&s,0);
     display_test_check_by_user("Test fill_stack (add 0 element): (display stack should be  empty)");
@@ -156,27 +176,12 @@ int test_stack(void){
     display_test_int("Test fill_stack() (add 4 elements)",0,isEmpty(&s));
     display_test_int("Test fill_stack() (add 4 elements)",0,isFull(&s));
     display_test_int("Test fill_stack (add 4 elements)",4,pop(&s));
-    //*/
 
 
 
   return(EXIT_SUCCESS);
 }
 
-int fill_stack ( Stack *s , int n_element , ...)  {
-	if(n_element>STACK_MAX_SIZE) { 
-		printf("Erreur nombre d'éléments supérieur à taille maximale de la stack -> fin du programme\n") ; 
-		return 0;
-	}
-	int i = 0;
-	va_list l;
-	va_start(l,n_element);
-	for(i=0; i<n_element; i++) {
-		s->data[i] = va_arg(l,int);
-		s->top = i;
-	}
-	va_end(l);
-	return 1;
-}
+
 
 

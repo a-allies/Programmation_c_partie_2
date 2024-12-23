@@ -9,9 +9,9 @@ ifeq ($(DEBUG),yes)
 CFLAGS+=-g
 endif
 
-all: main-exprString
+all: program
 
-main-exprString: main-exprString.o test.o stack.o evaluationString.o evaluation.o
+program: main-expr.o evaluation.o stack.o test.o
 	$(CC) $(LDFLAGS) $^ $(LIB) -o $@
 
 %.o: %.c
@@ -20,6 +20,6 @@ main-exprString: main-exprString.o test.o stack.o evaluationString.o evaluation.
 clean:
 	rm *.d
 	rm *.o
-	rm main-exprString
+	rm program
 
 include $(wildcard .d)

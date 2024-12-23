@@ -11,9 +11,8 @@
 
 Boolean add(Stack *s);
 Boolean substract(Stack *s);
-Boolean multiply(Stack *s);
+Boolean multiply(Stack  *s);
 Boolean divide(Stack *s);
-
 int test_eval(void);
 
 /* Uncomment for evaluation from strings*/
@@ -21,10 +20,12 @@ int test_eval(void);
 typedef struct{
     char c;
     Boolean (*act) (Stack *);
-} Map_element;
+}Map_element;
 
 int evaluateExpression(char *str);
 int evaluateExpression_pf(char *str);
+
 int test_evalString(void);
+
 
 #endif

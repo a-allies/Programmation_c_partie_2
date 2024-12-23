@@ -49,8 +49,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "/home/ange/Documents/revisions_c/TP3/cmake-build-debug",
-		"source" : "/home/ange/Documents/revisions_c/TP3"
+		"build" : "/home/ange/Documents/depot_github_prog_c_partie_2/TP3/cmake-build-debug",
+		"source" : "/home/ange/Documents/depot_github_prog_c_partie_2/TP3"
 	},
 	"version" : 
 	{

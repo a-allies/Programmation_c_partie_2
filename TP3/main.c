@@ -5,8 +5,10 @@
 #include "test.h"
 //#define MY_FILENAME_MAX 64
 #define MY_FILENAME_MAX 24
+#include <unistd.h>
+#include <ctype.h>
 
-int main () {
+int main (int argc, char **argv) {
  //Question 2
   /*char filename [MY_FILENAME_MAX];
   ImageRGB * f = NULL;
@@ -21,6 +23,30 @@ int main () {
       modifyImage(f, p0, p1);
       writeBMPFile_teacher( "mask_unmasked.bmp" ,f ,0);
 */
+    int c = 0;
+    int length = 1;
+
+    opterr = 0;
+
+    while ( (c = getopt(argc, argv, "l:") ) !=-1) {
+        switch (c) {
+            case 'l':
+                sscanf(optarg, "%d", &length);
+            if (length<0) {
+                fprintf(stderr, "Erreur la taille de la croix doit être >=0\n");
+                return -1;
+            }
+            break;
+
+            case '?':
+                if (optopt == 'l') fprintf (stderr, "Option -%c requiert un argument.\n", optopt);
+                else if (isprint (optopt)) fprintf (stderr, "Option inconnue -%c'.\n", optopt);
+                else fprintf (stderr,"Option caractère inconnu \\x%x'.\n",optopt);
+            return 1;
+            default:
+                abort ();
+        }
+    }
 
     char filename[MY_FILENAME_MAX];
     ImageRGB* cross = NULL;
@@ -49,7 +75,7 @@ int main () {
     freeImage(f);
 
 
-    cross = createCross(100);
+    cross = createCross(length);
     sprintf(filename,"cross.bmp");
     writeBMPFile_teacher(filename, cross, 0);
     f = readBMPFile_teacher(filename,0);

@@ -55,7 +55,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/ange/Documents/revisions_c/TP3/cmake-build-debug"
+			"value" : "/home/ange/Documents/depot_github_prog_c_partie_2/TP3/cmake-build-debug"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -415,7 +415,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/ange/Documents/revisions_c/TP3/cmake-build-debug/CMakeFiles/pkgRedirects"
+			"value" : "/home/ange/Documents/depot_github_prog_c_partie_2/TP3/cmake-build-debug/CMakeFiles/pkgRedirects"
 		},
 		{
 			"name" : "CMAKE_GENERATOR",
@@ -475,7 +475,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/ange/Documents/revisions_c/TP3"
+			"value" : "/home/ange/Documents/depot_github_prog_c_partie_2/TP3"
 		},
 		{
 			"name" : "CMAKE_INSTALL_PREFIX",
@@ -1035,7 +1035,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/ange/Documents/revisions_c/TP3/cmake-build-debug"
+			"value" : "/home/ange/Documents/depot_github_prog_c_partie_2/TP3/cmake-build-debug"
 		},
 		{
 			"name" : "imageRGB_IS_TOP_LEVEL",
@@ -1059,7 +1059,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/ange/Documents/revisions_c/TP3"
+			"value" : "/home/ange/Documents/depot_github_prog_c_partie_2/TP3"
 		}
 	],
 	"kind" : "cache",

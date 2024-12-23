@@ -27,5 +27,6 @@ void displayImageSquare(const ImageSquare * i);
 ImageSquare * loadImageSquare(const char * filename);
 unsigned int getImageSideLengthFromFile(const char * filename);
 
+
 #endif
 

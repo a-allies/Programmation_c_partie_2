@@ -21,11 +21,6 @@
 		{
 			"isCMake" : true,
 			"isExternal" : true,
-			"path" : "/home/ange/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/share/cmake-3.30/Modules/CMakeUnixFindMake.cmake"
-		},
-		{
-			"isCMake" : true,
-			"isExternal" : true,
 			"path" : "/home/ange/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/share/cmake-3.30/Modules/CMakeSystemSpecificInitialize.cmake"
 		},
 		{
@@ -430,8 +425,8 @@
 	"kind" : "cmakeFiles",
 	"paths" : 
 	{
-		"build" : "/home/ange/Documents/Programmation_C/Partie_2/TP/TP2/cmake-build-debug",
-		"source" : "/home/ange/Documents/Programmation_C/Partie_2/TP/TP2"
+		"build" : "/home/ange/Documents/revisions_c/TP2/cmake-build-debug",
+		"source" : "/home/ange/Documents/revisions_c/TP2"
 	},
 	"version" : 
 	{

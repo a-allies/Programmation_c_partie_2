@@ -2,7 +2,7 @@ CC=gcc
 CFLAGS= -Wall -Wextra -MMD
 LD=gcc
 LDFLAGS= -L/usr/local/lib
-LIB= -lm
+LIB= 
 
 DEBUG= no
 ifeq ($(DEBUG),yes)
@@ -11,7 +11,8 @@ endif
 
 all: program
 
-program: main.o test.o image.o image-proba.o
+program: LIB+= -lm
+program: main.o image.o test.o image-proba.o
 	$(CC) $(LDFLAGS) $^ $(LIB) -o $@
 
 %.o: %.c

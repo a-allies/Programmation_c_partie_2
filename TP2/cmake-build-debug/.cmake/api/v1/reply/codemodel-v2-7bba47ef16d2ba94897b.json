@@ -49,8 +49,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "/home/ange/Documents/Programmation_C/Partie_2/TP/TP2/cmake-build-debug",
-		"source" : "/home/ange/Documents/Programmation_C/Partie_2/TP/TP2"
+		"build" : "/home/ange/Documents/revisions_c/TP2/cmake-build-debug",
+		"source" : "/home/ange/Documents/revisions_c/TP2"
 	},
 	"version" : 
 	{

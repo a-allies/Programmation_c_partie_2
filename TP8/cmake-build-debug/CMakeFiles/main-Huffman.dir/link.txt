@@ -1,1 +1,0 @@
-/usr/bin/cc -g "CMakeFiles/main-Huffman.dir/main-Huffman.c.o" "CMakeFiles/main-Huffman.dir/binary_tree.c.o" "CMakeFiles/main-Huffman.dir/image.c.o" "CMakeFiles/main-Huffman.dir/image-proba.c.o" "/home/ange/Documents/Programmation_C/Partie_2/TP/TP8/list-teacher.o" "/home/ange/Documents/Programmation_C/Partie_2/TP/TP8/huffman_method-teacher.o" -o main-Huffman  -lm

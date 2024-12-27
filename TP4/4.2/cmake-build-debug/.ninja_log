@@ -1,6 +1,0 @@
-# ninja log v6
-4	23	1734975622319773932	CMakeFiles/main.dir/test.c.o	a1d848c2586730dd
-4	28	1734975622319773932	CMakeFiles/main.dir/imageRGB.c.o	9ec385f9e0cb687b
-1	27	1734977637713366650	CMakeFiles/main.dir/main.c.o	ccd64c4e0b1dddc3
-0	29	1734979447026882536	CMakeFiles/main.dir/BMPFile.c.o	2acc8f491973955
-29	42	1734979447054882901	main	609a8e7ee671367e

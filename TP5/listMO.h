@@ -13,7 +13,7 @@
 typedef struct NodeList{
     MultimediaObject value; /*!< the MultimediaObject*/
     struct NodeList * next; /*!< the address of the next element in the list*/
-} NodeList;
+}NodeList;
 
 /*!
 * \brief the list type
@@ -22,7 +22,7 @@ typedef struct{
     NodeList * first;       /*!< the address of the first element in the list*/
     NodeList * current;     /*!< the address of the current element in the list*/
     NodeList * last;        /*!< the address of the last element in the list*/
-} List;
+}List;
 
     /*group 1: create a list and basic operations*/
     void initList(List * l);

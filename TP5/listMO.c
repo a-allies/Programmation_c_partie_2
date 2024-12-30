@@ -21,7 +21,7 @@
 * \param[in] n the address of the setOnNext data element
 * \return NodeList* the address of the new data element
 */
-static NodeList *newNodeList(char * name, char * path, int day, int month, int year, TypeMultimediaObject type, NodeList * n)
+static NodeList *newNodeList(char * name, char * path, int day, int month, int year, TypeMultimediaObject type , NodeList *n)
 {
     NodeList *newNL = (NodeList *) malloc(sizeof(NodeList));
     if(newNL != NULL)
@@ -45,26 +45,28 @@ static void freeNodeList(NodeList *n)
 }
 
 void initList(List * l) {
+    if (l==NULL) return;
     l->first = NULL;
     l->current = NULL;
     l->last = NULL;
 }
 
 int isEmpty(List * l) {
-    return l->first==NULL;
+    if (l==NULL) return -1;
+
+    if (l->first==NULL) return 1;
+
+    return 0;
 }
 
 int insertFirst(List * l, char * name, char * path, int day, int month, int year, TypeMultimediaObject type) {
-    NodeList *n = (NodeList *) calloc(sizeof(NodeList), 1);
-    if (n==NULL) {
-        fprintf(stderr, "Erreur lors de l'allocation du NodeList\n");
-        return 0;
-    }
+    if (l==NULL) return 0;
+
+    NodeList *n = newNodeList(name, path, day, month, year, type, l->first);
 
     MultimediaObject mo = {};
-
+    fillMO(&mo, name, path, day, month, year, type);
     n->value = mo;
-    fillMO( &(n->value), name, path, day, month, year, type);
 
     if (isEmpty(l)) {
         l->first = n;
@@ -73,81 +75,95 @@ int insertFirst(List * l, char * name, char * path, int day, int month, int year
         return 1;
     }
 
-    n->next = l->first;
     l->first = n;
     l->current = n;
 
     return 1;
-
 }
 
 int isFirst(List * l) {
+    if (l==NULL) return -1;
+
     return l->current==l->first;
 }
 
 int isLast(List * l) {
+    if (l==NULL) return -1;
+
     return l->current==l->last;
 }
 
 int isOutOfList(List * l) {
+    if (l==NULL) return -1;
+
     return l->current==NULL;
 }
 
 char * getCurrentName (List * l) {
-    if (l==NULL || isOutOfList(l) ) return NULL;
+    if (l==NULL) return NULL;
+
     return l->current->value.name;
 }
-
 char * getCurrentPath (List * l) {
-    if (l==NULL || isOutOfList(l) ) return NULL;
+    if (l==NULL) return NULL;
+
     return l->current->value.path;
 }
 
 Date getCurrentDate (List * l) {
-    if (l==NULL || isOutOfList(l) ) {
-        Date d = {0,0,0};
-        return d;
-    }
+    if (l==NULL) return (Date) {-1, -1, -1};
+
     return l->current->value.date;
 }
 
 TypeMultimediaObject getCurrentType (List * l) {
-    if (l==NULL || isOutOfList(l) ) return UNDEFINED;
+    if (l==NULL) return UNDEFINED;
+
     return l->current->value.type;
 }
 
 void setOnFirst(List * l) {
     if (l==NULL) return;
+
     l->current = l->first;
 }
 
 void setOnLast(List * l) {
     if (l==NULL) return;
+
     l->current = l->last;
 }
 
 void setOnNext (List * l) {
     if (l==NULL) return;
+
     l->current = l->current->next;
 }
 
 void printList(List * l) {
-    if (l==NULL || isEmpty(l)) return;
+    if (l==NULL) return;
+
+
 
     setOnFirst(l);
-    while (isOutOfList(l)==0) {
+
+    if (isEmpty(l)) {
+        fprintf(stdout, "Liste vide\n");
+        return;
+    }
+
+    while (!isOutOfList(l)) {
         displayConsoleOM( &(l->current->value) );
         setOnNext(l);
     }
-    printf("\n");
 }
 
 int nbElement(List * l) {
     int nb = 0;
-    if (l==NULL || isEmpty(l)) return nb;
+    if (l==NULL) return nb;
 
     setOnFirst(l);
-    while (isOutOfList(l)==0) {
+    while (!isOutOfList(l)) {
         nb++;
         setOnNext(l);
     }
@@ -155,83 +171,72 @@ int nbElement(List * l) {
 }
 
 int find(List * l, char* name) {
-    if (l==NULL || isEmpty(l) || name==NULL) return 0;
+    if (l==NULL || isEmpty(l)) return 0;
+
     setOnFirst(l);
-    while (isOutOfList(l)==0) {
+    while (!isOutOfList(l)) {
         if (strcmp(l->current->value.name, name)==0) return 1;
         setOnNext(l);
     }
+
     return 0;
 }
 
 static int deleteFirst(List *l) {
     if (l==NULL || isEmpty(l)) return 0;
 
-    NodeList *n = l->first;
+    if (nbElement(l)==1) {
+        freeNodeList(l->first);
+        l->first = NULL;
+        l->current = NULL;
+        l->last = NULL;
+        return 1;
+    }
+
+    NodeList *tmp = l->first;
+    l->current = l->first->next;
     l->first = l->first->next;
 
-    if (n==l->current) {
-        if (n==l->last) {
-            l->last = NULL;
-            l->current = NULL;
-            l->first = NULL;
-        }
-        else {
-            setOnFirst(l);
-        }
-    }
-
-    if (n==l->last) {
-        l->last = NULL;
-        l->current = NULL;
-        l->first = NULL;
-    }
-
-    free( (void *) n);
+    freeNodeList(tmp);
     return 1;
+
 }
 
 static int deleteCurrent(List *l) {
     if (l==NULL || isEmpty(l)) return 0;
-    if (l->current==l->first) return deleteFirst(l);
 
-    NodeList *noeud = l->first;
-    while (noeud->next != l->current) {
-        noeud = noeud->next;
-    }
+    if (isFirst(l)) return deleteFirst(l);
 
-    noeud->next = l->current->next;
-    if (l->current == l->last) l->last = noeud;
+    NodeList *n = l->current;
 
-    NodeList *n2 = l->current;
-    free((void *) n2);
+    setOnFirst(l);
+    while (l->current->next!=n) setOnNext(l);
 
-    l->current = noeud;
-
+    l->current->next = n->next;
+    freeNodeList(n);
     return 1;
 }
 
 int deleteValue(List *l, char * name) {
-    if (l==NULL || isEmpty(l) || name==NULL) return 0;
+    if (l==NULL || isEmpty(l)) return 0;
 
     setOnFirst(l);
-    while (isOutOfList(l)==0) {
+    while (!isOutOfList(l)) {
         if (strcmp(l->current->value.name, name)==0) {
-            deleteCurrent(l);
-            return 1;
+            return deleteCurrent(l);
         }
         setOnNext(l);
     }
+
     return 0;
 }
 
 void freeList(List * n) {
-    if (n==NULL || (isEmpty(n)==1) ) return;
-    while (isEmpty(n)==0) {
-        deleteFirst(n);
-    }
-}
+    if (n==NULL || isEmpty(n)) return;
 
+    setOnFirst(n);
+    while (!isEmpty(n)) deleteFirst(n);
+}
 
 #include "test.h"
 /*!

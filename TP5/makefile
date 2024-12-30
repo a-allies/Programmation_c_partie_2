@@ -11,7 +11,7 @@ endif
 
 all: program
 
-program: main_testlist.o test.o multimedia-object.o listMO.o
+program: main_testlist.o multimedia-object.o test.o listMO.o
 	$(CC) $(LDFLAGS) $^ $(LIB) -o $@
 
 %.o: %.c

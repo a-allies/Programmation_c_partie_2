@@ -241,12 +241,12 @@ DTree removeNode(DTree t, double value) {
     }
 
     if(isEmpty(t->left)) {
-        freeNode(t->left);
+        freeNode(t);
         return t->right;
     }
 
     if(isEmpty(t->right)) {
-        freeNode(t->right);
+        freeNode(t);
         return t->left;
     }
 

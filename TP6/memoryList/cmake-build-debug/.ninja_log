@@ -1,0 +1,7 @@
+# ninja log v6
+1	11	1735575111363407314	build.ninja	6ae560633a66dfa3
+0	23	1735571101871364879	CMakeFiles/memoryList.dir/main.c.o	4ffb4bc06da2271b
+0	14	1735579939878515836	CMakeFiles/memoryList.dir/main.c.o	4ffb4bc06da2271b
+1	18	1735579939878515836	CMakeFiles/memoryList.dir/test.c.o	c84ad796d1712538
+1	31	1735579939878515836	CMakeFiles/memoryList.dir/memoryList.c.o	287afb7d2979c8a8
+31	42	1735579939910516215	memoryList	eabece35846e9b23

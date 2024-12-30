@@ -13,7 +13,8 @@
 * The test message is displayed in blue.
 * \param[in] message the message indicating what it is tested  and what value should be expected
 */
-void display_test_check_by_user(char * message) {
+void display_test_check_by_user(char * message)
+{
     printf("\033[36m%s\033[0m :\n",message);
 }
 
@@ -24,7 +25,8 @@ void display_test_check_by_user(char * message) {
 * \param[in] expected_value the expected value
 * \param[in] obtained_value the tested value
 */
-void display_test_int(char * message, int expected_value, int obtained_value) {
+void display_test_int(char * message, int expected_value, int obtained_value)
+{
     (expected_value == obtained_value)? fprintf(stdout,"\033[32m%s : %s\033[0m\n",message,"PASSED"):fprintf(stdout,"\033[31m%s : %s\033[0m\n",message,"FAILED");
 }
 
@@ -35,9 +37,10 @@ void display_test_int(char * message, int expected_value, int obtained_value) {
 * \param[in] expected_value the expected value
 * \param[in] expected_value the tested value
 */
-void display_test_string(char * message, char * expected_value, char * obtained_value) {
-    ((expected_value == NULL && obtained_value == NULL) ||(strcmp(expected_value,obtained_value) == 0) )?
-    fprintf(stdout,"\033[32m%s : %s\033[0m\n",message,"PASSED"):
-    fprintf(stdout,"\033[31m%s : %s\033[0m\n",message,"FAILED");
+void display_test_string(char * message, char * expected_value, char * obtained_value)
+{
+((expected_value == NULL && obtained_value == NULL) ||(strcmp(expected_value,obtained_value) == 0) )?
+fprintf(stdout,"\033[32m%s : %s\033[0m\n",message,"PASSED"):
+fprintf(stdout,"\033[31m%s : %s\033[0m\n",message,"FAILED");
 }
 

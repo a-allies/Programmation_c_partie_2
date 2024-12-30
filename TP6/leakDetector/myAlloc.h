@@ -21,7 +21,7 @@
 #endif
 
 void* myMalloc(unsigned int size, const char* file, const char * func, int line);
-void myFree(void* block, const char* file, const char * func, int line);
+void myFree ( void* block, const char* file, const char * func, int line);
 int myCheck();
 void myGarbageCollector();
 

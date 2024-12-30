@@ -240,14 +240,16 @@ DTree removeNode(DTree t, double value) {
         return NULL;
     }
 
-    if(isEmpty(t->left)) {
+    if (isEmpty(t->left)) {
+        DNode *n = t->right;
         freeNode(t);
-        return t->right;
+        return n;
     }
 
-    if(isEmpty(t->right)) {
+    if (isEmpty(t->right)) {
+        DNode *n = t->left;
         freeNode(t);
-        return t->left;
+        return n;
     }
 
     valeur_max_arbre_gauche = findMax(t->left);

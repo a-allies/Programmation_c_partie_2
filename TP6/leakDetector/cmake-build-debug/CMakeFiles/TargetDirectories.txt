@@ -1,3 +1,0 @@
-/home/ange/Documents/revisions/TP6/leakDetector/cmake-build-debug/CMakeFiles/memoryList.dir
-/home/ange/Documents/revisions/TP6/leakDetector/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/ange/Documents/revisions/TP6/leakDetector/cmake-build-debug/CMakeFiles/rebuild_cache.dir

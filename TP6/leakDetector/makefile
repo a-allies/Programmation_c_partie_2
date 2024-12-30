@@ -11,7 +11,7 @@ endif
 
 all: program
 
-program: main.o myAlloc.o myFunctions.o memoryList.o test.o
+program: main.o memoryList.o test.o myAlloc.o myFunctions.o
 	$(CC) $(LDFLAGS) $^ $(LIB) -o $@
 
 %.o: %.c

@@ -5,8 +5,14 @@
 #include <string.h>
 
 #include "myAlloc.h"
+#include "memoryList.h"
 
-static int nb_block = 0;
+List l = {
+	{{ NULL , NULL ,0 , NULL } ,&( l . sentinel_end ) , NULL } , /* sentinel_begin */
+	&( l . sentinel_begin ) , /* current */
+	{{ NULL , NULL ,0 , NULL } , NULL ,&( l . sentinel_begin ) } /* sentinel_end */
+};
+
 
 /*!
  * \brief Redefines the malloc function behavior
@@ -26,7 +32,7 @@ void* myMalloc(unsigned int size, const char* file,  const char * func, int line
 	if (allocated_block != NULL)
 	{
 
-        	nb_block ++;
+        	insertSort(&l, file, func, line, allocated_block);
         	printf("In file %s,\n\t function %s,\n\t\t line %d :\n\t\t\t allocated block at memory address: %p\n",file,func,line,allocated_block);
 	}
 
@@ -46,9 +52,9 @@ void myFree ( void* block, const char* file,  const char * func, int line)
 {
     if(block != NULL)
     {
-        nb_block --;
+        deleteValue(&l, block);
+    	printf("In file %s,\n\t function %s,\n\t\t line %d :\n\t\t\t freed block at memory address: %p\n",file, func, line, block);
         free(block);
-        printf("In file %s,\n\t function %s,\n\t\t line %d :\n\t\t\t freed block at memory address: %p\n",file, func, line, block);
     }
 }
 
@@ -60,7 +66,15 @@ void myFree ( void* block, const char* file,  const char * func, int line)
 */
 int myCheck()
 {
-    return nb_block;
+    return countElement(&l);
 }
 
+void myGarbageCollector() {
+	if (isEmpty(&l)) return;
 
+	setOnFirst(&l);
+	while (!isEmpty(&l)) {
+		deleteValue(&l, getCurrentAddress(&l));
+		//setOnNext(&l);
+	}
+}

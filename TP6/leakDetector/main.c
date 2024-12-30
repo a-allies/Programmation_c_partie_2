@@ -28,27 +28,28 @@
  *   It tests dynamic memory allocation/deallocation
  * \return int 0 if everything is ok
  */
-int main()
-{
-    char word [] = "bonjour";
-    char * t = NULL;
-    char * s = NULL;
+int main() {
+    char word[] = "bonjour";
+    char *t = NULL;
+    char *s = NULL;
     int check;
 
-
-    t= (char * ) malloc(50);
-    s= (char * ) malloc(50);
-
-    mystrcpy(&t,word);
-    mystrinv(&s,word);
+    t = (char *) malloc(50);
+    s = (char *) malloc(50);
+    //char *c = (char *) malloc(50);
+    mystrcpy(&t, word);
+    mystrinv(&s, word);
 
     free(t);
 
 #ifdef MEMCHECK
-    if(myCheck())
-        printf("There are unfreed memory blocks \n");
+    printf("There are %d unfreed memory blocks\n", check = myCheck());
+    if (check) {
+        //printf("m\n");
+        myGarbageCollector();
+        printf("There are %d unfreed memory blocks\n", check = myCheck());
+    }
 #endif
-	system("pause");
-    return 0;
-}
 
+     return 0;
+}

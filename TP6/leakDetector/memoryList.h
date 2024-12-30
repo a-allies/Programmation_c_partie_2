@@ -50,7 +50,5 @@ int insertSort (List * l, const char *f, const char * fn, int ln, void * a);
 int find(List * l, void * a);
 void * deleteValue(List *l ,void * a);
 void testMemoryList();
-int insertSortGeneric (List * l, const char *f, const char * fn, int ln, void * a, int (*comp) (void *, void *));
-int compAddress(void *a1, void *a2);
 
 #endif

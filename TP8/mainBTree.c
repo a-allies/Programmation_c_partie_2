@@ -11,10 +11,11 @@
 
 int main()
 {
-    float pb[] ={0.11,0.01,0.09,0.3,0.05,0.15,0.22,0.07};
-    int nb = sizeof(pb)/sizeof (pb[0]);
+    //float pb[] ={0.11,0.01,0.09,0.3,0.05,0.15,0.22,0.07};
+    //int nb = sizeof(pb)/sizeof (pb[0]);
 
     nodeTree * root = NULL;
+
     nodeTree *g1 = newNodeTree(0.1, NULL, NULL);
     nodeTree *d1 = newNodeTree(0.2, NULL, NULL);
     nodeTree *g2 = newNodeTree(0.3, NULL, NULL);
@@ -23,8 +24,7 @@ int main()
     nodeTree *d = buildParentNode(g2, d2);
     root = buildParentNode(g, d);
     printCodewords(root);
-    deleteNodeTree(root); deleteNodeTree(g); deleteNodeTree(d); deleteNodeTree(g1); deleteNodeTree(d1);
-    deleteNodeTree(g2); deleteNodeTree(d2);
+    deleteNodeTree(root);
 
 
     return 0;

@@ -257,3 +257,62 @@ DTree removeNode(DTree t, double value) {
     t->value = valeur_max_arbre_gauche;
     return t;
 }
+
+static int compar(const void *a, const void *b) {
+    const double *ptr_a = (double *) a;
+    const double *ptr_b = (double *) b;
+
+    if( *ptr_a <  *ptr_b) return -1;
+    if( *ptr_a > *ptr_b) return 1;
+    return 0;
+
+}
+
+DTree buildBalancedTreeFromUnsortedArray(double * a, int n) {
+    if(a==NULL || n<=0) {
+        fprintf(stderr, "Tableau null ou longueur<=0\n");
+        return NULL;
+    }
+
+    qsort(a, n ,sizeof(double), compar);
+    return buildBalancedTreeFromSortedArray(a, n);
+}
+
+double * readArrayFromFile(char *s, int * nb) {
+    int i = 0;
+    if(s==NULL) {
+        fprintf(stderr, "erreur : nom fichier nul  dans readArrayFromFile()\n");
+        return NULL;
+    }
+
+
+    FILE *fichier = fopen(s, "rb");
+    if(fichier==NULL) {
+        fprintf(stderr, "Erreur d'ouverture du fichier de lecture dans readArrayFromFile()\n");
+        return NULL;
+    }
+    fseek(fichier, 0, SEEK_END);
+    int taille_tableau = ftell(fichier)/sizeof(double);
+    *nb = taille_tableau;
+    double *tableau = (double *) calloc(taille_tableau, sizeof(double));
+    fseek(fichier, 0, SEEK_SET);
+
+    for(i=0; i<taille_tableau; i++) {
+        fread(tableau+i, sizeof(double), 1, fichier);
+    }
+
+    fclose(fichier);
+    return tableau;
+}
+
+DTree readDTreeFromFile(char *s) {
+    int nb = 0;
+    if(s==NULL) {
+        fprintf(stderr, "erreur : nom fichier nul  dans readDTreeromFile()\n");
+        return NULL;
+    }
+    double *tab = readArrayFromFile(s, &nb);
+    DTree res = buildBalancedTreeFromUnsortedArray(tab, nb);
+    free(tab);
+    return res;
+}

@@ -235,7 +235,7 @@ DTree removeNode(DTree t, double value) {
         return t;
     }    
 
-    if(isleaf(t)) {
+    if(isLeaf(t)) {
         freeNode(t);
         return NULL;
     }

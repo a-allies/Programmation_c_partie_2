@@ -97,7 +97,6 @@ int shortestPathDijkstra(Graph *g, char val1, char val2) {
         fprintf(stderr, "Erreur lors de l'étape d'initialisation\n");
         return -1;
     }
-    origine->dist_to_origin = 0;
 
     Vertex *sommet_actuel = NULL;
     do {

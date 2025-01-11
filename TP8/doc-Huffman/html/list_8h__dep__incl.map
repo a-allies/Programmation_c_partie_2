@@ -1,7 +1,0 @@
-<map id="list.h" name="list.h">
-<area shape="rect" id="node1" title="File defining the list structure as studied in Huffman coding practical work." alt="" coords="192,5,243,32"/>
-<area shape="rect" id="node2" href="$huffman__method_8h.html" title="File defining the functions to build a Huffman tree." alt="" coords="49,80,180,107"/>
-<area shape="rect" id="node4" href="$main-_huffman_8c.html" title="main program to read data from file and build the corresponding Huffman coding" alt="" coords="160,155,275,181"/>
-<area shape="rect" id="node5" href="$list_8c.html" title="File implementing the list structure as studied in Huffman coding practical work." alt="" coords="255,80,305,107"/>
-<area shape="rect" id="node3" href="$huffman__method_8c.html" title="File implementing the functions to build a Huffman tree." alt="" coords="5,155,136,181"/>
-</map>

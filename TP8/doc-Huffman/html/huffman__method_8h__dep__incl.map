@@ -1,5 +1,0 @@
-<map id="huffman_method.h" name="huffman_method.h">
-<area shape="rect" id="node1" title="File defining the functions to build a Huffman tree." alt="" coords="79,5,209,32"/>
-<area shape="rect" id="node2" href="$huffman__method_8c.html" title="File implementing the functions to build a Huffman tree." alt="" coords="5,80,136,107"/>
-<area shape="rect" id="node3" href="$main-_huffman_8c.html" title="main program to read data from file and build the corresponding Huffman coding" alt="" coords="160,80,275,107"/>
-</map>

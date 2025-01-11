@@ -1,8 +1,0 @@
-<map id="huffman_method.h" name="huffman_method.h">
-<area shape="rect" id="node1" title="File defining the functions to build a Huffman tree." alt="" coords="37,5,167,32"/>
-<area shape="rect" id="node2" href="$binary__tree_8h.html" title="File defining the binary Huffman tree structure as studied in Huffman coding practical work." alt="" coords="5,155,103,181"/>
-<area shape="rect" id="node3" href="$list_8h.html" title="File defining the list structure as studied in Huffman coding practical work." alt="" coords="77,80,127,107"/>
-<area shape="rect" id="node6" href="$image-proba_8h.html" title="File defining the function to read an square image whose pixels are between 0 and 7 and estimate the ..." alt="" coords="151,80,255,107"/>
-<area shape="rect" id="node4" href="$image_8h.html" title="File declaring the image characteristics." alt="" coords="155,155,223,181"/>
-<area shape="rect" id="node5" title=" " alt="" coords="149,229,228,256"/>
-</map>

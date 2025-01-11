@@ -1,7 +1,0 @@
-<map id="image&#45;proba.c" name="image&#45;proba.c">
-<area shape="rect" id="node1" title="File implementing the function to read an image and estimate the probability." alt="" coords="91,5,195,32"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,80,67,107"/>
-<area shape="rect" id="node3" href="$image-proba_8h.html" title="File defining the function to read an square image whose pixels are between 0 and 7 and estimate the ..." alt="" coords="91,80,195,107"/>
-<area shape="rect" id="node4" href="$image_8h.html" title="File declaring the image characteristics." alt="" coords="153,155,221,181"/>
-<area shape="rect" id="node5" title=" " alt="" coords="147,229,226,256"/>
-</map>

@@ -1,0 +1,22 @@
+graph G {
+	rankdir=LR;
+	node [style=filled shape=circle fontcolor=white color=white margin=0 width=1 height=1];
+
+	Republique -- BeauxArts -- Strasbourg -- Baud -- INSA -- IUT [color = red, penwidth=9.0 ]
+	Republique [style=wedged fillcolor="red:green"]
+	BeauxArts [style=wedged fillcolor="red:blue"]
+	Strasbourg [style=filled fillcolor=red]
+	Baud [style=wedged fillcolor="red:blue"]
+	INSA [style=wedged fillcolor="red:blue"]
+	IUT [style=filled fillcolor=red]
+	Gare -- BeauxArts -- Baud -- INSA -- ChampBlanc [color = blue, penwidth=9.0 ]
+	Gare [style=filled fillcolor=blue]
+	BeauxArts [style=wedged fillcolor="blue:red"]
+	Baud [style=wedged fillcolor="blue:red"]
+	INSA [style=wedged fillcolor="blue:red"]
+	ChampBlanc [style=filled fillcolor=blue]
+	CDG -- Republique -- Parlement [color = green, penwidth=9.0 ]
+	CDG [style=filled fillcolor=green]
+	Republique [style=wedged fillcolor="green:red"]
+	Parlement [style=filled fillcolor=green]
+}

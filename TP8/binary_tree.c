@@ -122,7 +122,7 @@ void printCodewords_(binary_tree t) {
             int longueur_code_gauche = longueur_code_actuelle+1<=CODESIZEMAX ? longueur_code_actuelle+1 : CODESIZEMAX;
             Tuple tuple_gauche = {"", longueur_code_gauche, noeud_gauche };
 
-            for (i; i<longueur_code_gauche; i++) tuple_gauche.code[i] = code_actuel[i];
+            for (i=0; i<longueur_code_gauche; i++) tuple_gauche.code[i] = code_actuel[i];
             tuple_gauche.code[longueur_code_gauche-1] = '0';
             tuple_gauche.code[longueur_code_gauche] = '\0';
 
@@ -136,7 +136,7 @@ void printCodewords_(binary_tree t) {
             int longueur_code_droit = longueur_code_actuelle+1<=CODESIZEMAX ? longueur_code_actuelle+1 : CODESIZEMAX;
             Tuple tuple_droite = {"", longueur_code_droit, noeud_droit };
 
-            for (j; j<longueur_code_droit; j++) tuple_droite.code[j] = code_actuel[j];
+            for (j=0; j<longueur_code_droit; j++) tuple_droite.code[j] = code_actuel[j];
             tuple_droite.code[longueur_code_droit-1] = '1';
             tuple_droite.code[longueur_code_droit] = '\0';
 

@@ -54,38 +54,34 @@ static int isLeaf(nodeTree *n) {
 }
 
 static void printCodeWordsAide(binary_tree t, int longueur_code, char code[CODESIZEMAX]) {
-    if (t==NULL) return;
+    if(t==NULL) return;
 
-    if(isLeaf(t)) {
+    if(isLeaf(t)) { 
         code[longueur_code] = '\0';
-        printCode(code, longueur_code, t->proba);
-        return;;
+        printCode(code, longueur_code, t->proba); 
     }
 
-    if (t->left!=NULL) {
-        code[longueur_code] = '0';
-        longueur_code++;
-        printCodeWordsAide(t->left, longueur_code, code);
-        longueur_code--;
-    }
+    code[longueur_code] = '0';
+    longueur_code++;
+    printCodeWordsAide(t->left, longueur_code, code);
+    longueur_code--;
 
-    if (t->right!=NULL) {
-        code[longueur_code] = '1';
-        longueur_code++;
-        printCodeWordsAide(t->right, longueur_code, code);
-        longueur_code--;
-    }
+    code[longueur_code] = '1';
+    longueur_code++;
+    printCodeWordsAide(t->right, longueur_code, code);
+    longueur_code--;
+
 
 }
 
 void printCodewords(binary_tree t) {
+    if(t==NULL) return;
     int longueur_code = 0;
-    char code[CODESIZEMAX+1];
-
-    if (t==NULL) return;
-
+    char code[CODESIZEMAX];
     printCodeWordsAide(t, longueur_code, code);
 }
+
+//version itérative
 
 void printCodewords_(binary_tree t) {
 

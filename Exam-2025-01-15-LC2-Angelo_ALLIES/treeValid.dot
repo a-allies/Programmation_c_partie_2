@@ -1,0 +1,9 @@
+digraph {
+"Which marketing strategy?"->"GoogleAds\n cost : -5000"-> " cost : 30000\n proba : 0.800000"
+"GoogleAds\n cost : -5000"-> " cost : 15000\n proba : 0.200000"
+"Which marketing strategy?"->"pubTV\n cost : -50000"-> " cost : 80000\n proba : 0.850000"
+"pubTV\n cost : -50000"-> " cost : 20000\n proba : 0.150000"
+"Which marketing strategy?"->"Influencer\n cost : -500"-> " cost : 55000\n proba : 0.300000"
+"Influencer\n cost : -500"-> " cost : 20000\n proba : 0.500000"
+"Influencer\n cost : -500"-> " cost : 10000\n proba : 0.200000"
+}

@@ -1,0 +1,4 @@
+digraph {
+"Which marketing strategy?"->"GoogleAds\n cost : -5000"-> " cost : 30000\n proba : 0.800000"
+"GoogleAds\n cost : -5000"-> " cost : 15000\n proba : 0.100000"
+}

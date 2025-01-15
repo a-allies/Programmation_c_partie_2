@@ -11,10 +11,10 @@ endif
 
 all: decisionTree_teacher decisionTree
 
-decisionTree_teacher: main_teacher.o decisionTree.o test.o 
+decisionTree_teacher: main_teacher.o decisionTree.o test.o decisionTree_teacher.o 
 	$(CC) $(LDFLAGS) $^ $(LIB) -o $@
 
-decisionTree: main.o decisionTree.o test.o 
+decisionTree: main.o decisionTree.o test.o decisionTree_teacher.o
 	$(CC) $(LDFLAGS) $^ $(LIB) -o $@
 
 %.o: %.c
